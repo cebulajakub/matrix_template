@@ -9,25 +9,26 @@
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
  *  i jakie ma glowne cechy.
  */
+template<typename TYP, int Rozmiar>
 class Wektor {
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
    */
   
   public:
-  double wspolczynniki[ROZMIAR+1];
+  TYP wspolczynniki[ROZMIAR+1];
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
    */    
-  Wektor operator + (const Wektor &L1);
-  Wektor operator - (const Wektor &L1);
-  Wektor operator * (const double &L1);
-  Wektor operator / (const double &L1);
-  const double & operator [] (int ind) const {return this-> wspolczynniki[ind];}
-  double & operator[] (int ind) {return this->wspolczynniki[ind];}
+  Wektor<TYP,Rozmiar> operator + (const Wektor<TYP,Rozmiar> &L1);
+  Wektor<TYP,Rozmiar> operator - (const Wektor<TYP,Rozmiar> &L1);
+  Wektor<TYP,Rozmiar> operator * (const TYP &L1);
+  Wektor<TYP,Rozmiar> operator / (const TYP &L1);
+  const TYP & operator [] (int ind) const {return this-> wspolczynniki[ind];}
+  TYP & operator[] (int ind) {return this->wspolczynniki[ind];}
 
-  friend std::ostream& operator << (std::ostream &Strm, Wektor &Wek);
-  friend std::istream& operator >> (std::istream &Strm, Wektor &Wek);
+  friend std::ostream& operator << (std::ostream &Strm, Wektor<TYP,Rozmiar> &Wek);
+  friend std::istream& operator >> (std::istream &Strm, Wektor<TYP, Rozmiar> &Wek);
 };
 
 

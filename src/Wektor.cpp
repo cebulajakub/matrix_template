@@ -7,9 +7,9 @@
  *  niz dwie linijki.
  *  Mniejsze metody mozna definiwac w ciele klasy.
  */
-
-Wektor Wektor::operator +(const Wektor &L1){
-Wektor wynik;
+template<typename TYP,int Rozmiar>
+Wektor<TYP,Rozmiar> Wektor<TYP,Rozmiar>::operator +(const Wektor<TYP,Rozmiar> &L1){
+Wektor<TYP> wynik;
 
 for(int i=0;i<ROZMIAR+1;i++){
 wynik[i]=this->wspolczynniki[i]+L1[i];
@@ -17,8 +17,9 @@ wynik[i]=this->wspolczynniki[i]+L1[i];
 return wynik;
 }
 
-Wektor Wektor::operator -(const Wektor &L1){
-Wektor wynik;
+template<typename TYP,int Rozmiar>
+Wektor<TYP,Rozmiar> Wektor<TYP,Rozmiar>::operator -( const Wektor<TYP,Rozmiar> &L1){
+Wektor<TYP,Rozmiar> wynik;
 
 for(int i=0;i<ROZMIAR+1;i++){
 wynik[i]=this->wspolczynniki[i]-L1[i];
@@ -26,8 +27,9 @@ wynik[i]=this->wspolczynniki[i]-L1[i];
 return wynik;
 }
 
-Wektor Wektor::operator *(const double &L1){
-    Wektor wyn;
+template<typename TYP,int Rozmiar>
+Wektor<TYP,Rozmiar> Wektor<TYP,Rozmiar>::operator *(const TYP &L1){
+Wektor<TYP> wyn;
 
 for(int i=0;i<ROZMIAR+1;i++){
 wyn[i]=(*this)[i]*L1;
@@ -35,8 +37,9 @@ wyn[i]=(*this)[i]*L1;
 return wyn;
 }
 
-Wektor Wektor::operator /(const double &L1){
-Wektor wyn;
+template<typename TYP,int Rozmiar>
+Wektor<TYP,Rozmiar> Wektor<TYP,Rozmiar>::operator /(const TYP &L1){
+Wektor<TYP,Rozmiar> wyn;
 
 for(int i=0;i<ROZMIAR+1;i++){
 wyn[i]=(*this)[i]/L1;
@@ -44,15 +47,16 @@ wyn[i]=(*this)[i]/L1;
 return wyn;
 }
 
-std::istream &operator>>(std::istream &Strm, Wektor &Wek){
+template<typename TYP,int Rozmiar>
+std::istream &operator>>(std::istream &Strm, Wektor<TYP,Rozmiar> &Wek){
 for(int i=0;i<ROZMIAR+1;i++){
     Strm>>Wek[i];    
 }
 return Strm;
 }
 
-
-std::ostream &operator<<(std::ostream &Strm, Wektor &Wek){
+template<typename TYP,int Rozmiar>
+std::ostream &operator<<(std::ostream &Strm, Wektor<TYP,Rozmiar> &Wek){
 for(int i=0;i<ROZMIAR+1;i++){
 
     Strm<<Wek[i]<<" ";
