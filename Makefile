@@ -14,14 +14,8 @@ obj/main.o: src/main.cpp inc/UkladRownanLiniowych.hh inc/Macierz.hh inc/Wektor.h
         inc/rozmiar.h
 	g++ ${CXXFLAGS} -o obj/main.o src/main.cpp
 
-obj/UkladRownanLiniowych.o: src/UkladRownanLiniowych.cpp inc/UkladRownanLiniowych.hh
-	g++ ${CXXFLAGS} -o obj/UkladRownanLiniowych.o src/UkladRownanLiniowych.cpp
-
-obj/Macierz.o: src/Macierz.cpp inc/Macierz.hh 
-	g++ ${CXXFLAGS} -o obj/Macierz.o src/Macierz.cpp
-
-obj/Wektor.o: src/Wektor.cpp inc/Wektor.hh inc/rozmiar.h
-	g++ ${CXXFLAGS} -o obj/Wektor.o src/Wektor.cpp
-
+ob/LZespolona.o: src/LZespolona.cpp inc/LZespolona.hh
+	g++ ${CXXFLAGS} -o obj/LZespolona.o src/LZespolona.cpp
+	
 clean:
 	rm -f obj/*.o uklad_rownan

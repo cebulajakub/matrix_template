@@ -1,6 +1,6 @@
 #ifndef WEKTOR_HH
 #define WEKTOR_HH
-
+#include "LZespolona.hh"
 #include "rozmiar.h"
 #include <iostream>
 
@@ -9,7 +9,7 @@
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
  *  i jakie ma glowne cechy.
  */
-template<typename TYP, int Rozmiar>
+template<typename TYP>
 class Wektor {
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
@@ -20,15 +20,34 @@ class Wektor {
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
    */    
-  Wektor<TYP,Rozmiar> operator + (const Wektor<TYP,Rozmiar> &L1);
-  Wektor<TYP,Rozmiar> operator - (const Wektor<TYP,Rozmiar> &L1);
-  Wektor<TYP,Rozmiar> operator * (const TYP &L1);
-  Wektor<TYP,Rozmiar> operator / (const TYP &L1);
+  Wektor<TYP> operator + (const Wektor<TYP> &L1);
+  Wektor<TYP> operator - (const Wektor<TYP> &L1);
+  Wektor<TYP> operator * (const TYP &L1);
+  Wektor<TYP> operator / (const TYP &L1);
   const TYP & operator [] (int ind) const {return this-> wspolczynniki[ind];}
   TYP & operator[] (int ind) {return this->wspolczynniki[ind];}
 
-  friend std::ostream& operator << (std::ostream &Strm, Wektor<TYP,Rozmiar> &Wek);
-  friend std::istream& operator >> (std::istream &Strm, Wektor<TYP, Rozmiar> &Wek);
+
+
+
+friend std::ostream &operator<<(std::ostream &Strm, Wektor<TYP> &Wek){
+  int i;
+for(i=0;i<ROZMIAR+1;i++){
+
+    Strm<<Wek[i]<<" ";
+}
+std::cout<<std::endl;
+return Strm;
+}
+
+friend std::istream &operator>>(std::istream &Strm, Wektor<TYP> &Wek){
+for(int i=0;i<ROZMIAR+1;i++){
+    Strm>>Wek[i];    
+}
+return Strm;
+}
+
+
 };
 
 

@@ -8,20 +8,30 @@
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
  *  i jakie ma glowne cechy.
  */
+template<typename TYP>
 class UkladRownanLiniowych {
   
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
    */
   public:
-  Macierz macierz;
-  friend std::ostream& operator<<(std::ostream &Strm, UkladRownanLiniowych &ukrown);
-  friend std::istream& operator>>(std::istream &Strm, UkladRownanLiniowych &ukrown);
+  Macierz<TYP> macierz;
   bool obliczanie();
   void wynik();
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
-   */    
+   */
+ 
+friend std::ostream& operator<<(std::ostream &Strm, UkladRownanLiniowych<TYP> &ukrown){
+    Strm<<ukrown.macierz;
+    return Strm;
+}
+
+friend std::istream& operator>>(std::istream &Strm, UkladRownanLiniowych<TYP> &ukrown){
+    Strm>>ukrown.macierz;
+    return Strm;
+}
+
 };
 
 

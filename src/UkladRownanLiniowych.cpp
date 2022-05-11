@@ -8,18 +8,10 @@
  *  wiecej kodu niz dwie linijki.
  *  Mniejsze metody mozna definiwac w ciele klasy.
  */
-std::ostream& operator<<(std::ostream &Strm, UkladRownanLiniowych &ukrown){
-    Strm<<ukrown.macierz;
-    return Strm;
-}
 
-std::istream& operator>>(std::istream &Strm, UkladRownanLiniowych &ukrown){
-    Strm>>ukrown.macierz;
-    return Strm;
-}
-
-bool UkladRownanLiniowych::obliczanie(){
-double  wspolczynnik;
+template<typename TYP>
+bool UkladRownanLiniowych<TYP>::obliczanie(){
+TYP  wspolczynnik;
 
 void zerowaniekolumn();{
 for(int i=0;i<ROZMIAR;i++){

@@ -19,7 +19,7 @@ return wynik;
 
 template<typename TYP>
 Wektor<TYP> Wektor<TYP>::operator -( const Wektor<TYP> &L1){
-Wektor<TYP,Rozmiar> wynik;
+Wektor<TYP> wynik;
 
 for(int i=0;i<ROZMIAR+1;i++){
 wynik[i]=this->wspolczynniki[i]-L1[i];
@@ -45,22 +45,4 @@ for(int i=0;i<ROZMIAR+1;i++){
 wyn[i]=(*this)[i]/L1;
 }
 return wyn;
-}
-
-template<typename TYP,int Rozmiar>
-std::istream &operator>>(std::istream &Strm, Wektor<TYP> &Wek){
-for(int i=0;i<ROZMIAR+1;i++){
-    Strm>>Wek[i];    
-}
-return Strm;
-}
-
-template<typename TYP,int Rozmiar>
-std::ostream &operator<<(std::ostream &Strm, Wektor<TYP> &Wek){
-for(int i=0;i<ROZMIAR+1;i++){
-
-    Strm<<Wek[i]<<" ";
-}
-std::cout<<std::endl;
-return Strm;
 }

@@ -10,20 +10,37 @@
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
  *  i jakie ma glowne cechy.
  */
+template<typename TYP>
 class Macierz {
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
    */
   public:
-  Wektor wektor[ROZMIAR];
+  Wektor<TYP> wektor[ROZMIAR];
   void zamienwiersz(int w1, int w2);
-  const double & operator () (int x, int y) const {return this-> wektor[x][y];}
-  double & operator() (int x, int y) {return this->wektor[x][y];}
+  const TYP & operator () (int x, int y) const {return this-> wektor[x][y];}
+  TYP & operator() (int x, int y) {return this->wektor[x][y];}
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
    */    
-  friend std::istream& operator >> (std::istream &Strm, Macierz &Mac);
-  friend std::ostream& operator << (std::ostream &Strm, Macierz &Mac);
+
+friend std::istream& operator >> (std::istream &Strm, Macierz<TYP> &Mac){
+
+for(int i=0; i<ROZMIAR;i++)
+Strm>>Mac.wektor[i];
+
+return Strm;
+
+}
+
+friend std::ostream& operator<<(std::ostream &Strm, Macierz<TYP> &Mac){
+
+for(int i=0; i<ROZMIAR;i++)
+Strm<<Mac.wektor[i];
+
+return Strm;
+
+}
 
 };
 

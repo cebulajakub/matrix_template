@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Wektor.hh"
-#include "Macierz.hh"
-#include "UkladRownanLiniowych.hh"
-
+#include "Wektor.cpp"
+#include "Macierz.cpp"
+#include "UkladRownanLiniowych.cpp"
+#include "LZespolona.hh"
 
 
 using namespace std;
@@ -25,29 +25,20 @@ int main()
   //UklRown.obliczanie();
   //Wektor<TYP, Rozmiar> w;
 
-    cout << endl
-       << " --------- Test klasy Wektor<double," << ROZMIAR << "> ----------" << endl
+
+  cout << endl
+       << " --------- Test klasy Wektor<LZespolona," << ROZMIAR << "> ----------" << endl
        << endl;
-  
-  Wektor<double,ROZMIAR>    W, W_wynik;
+
+
+  Wektor<LZespolona>    W;
   
   for (unsigned int Ind = 0; Ind < ROZMIAR; ++Ind) {
-    W[Ind] = Ind;
+    W[Ind].re = Ind;      W[Ind].im = Ind;
   }
 
   cout << "  Wyswietlenie wspolrzednych wektora: W" << endl
        << "        " << W << endl
        << endl;
 
-  W_wynik = W*2;
-  cout << "  Wyswietlenie wyniku: W*2" << endl
-       << "        " << W_wynik << endl
-       << endl;
-  
-  W_wynik = W*2-W;
-  cout << "  Wyswietlenie wyniku: W-W*0.5" << endl
-       << "        " << W_wynik << endl
-       << endl;
-
-  
 }

@@ -1,5 +1,4 @@
 #include "LZespolona.hh"
-#include "WyrazenieZesp.hh"
 #include <istream>
 
 using namespace std;
@@ -61,15 +60,15 @@ LZespolona LZespolona::operator/(LZespolona Skl2)
   //LZespolona sprz = Skl2.Sprzezenie();
   double mod = Skl2.modul();
 
-  if (mod == 0)
-    cout << "Dzielenie przez 0" << endl;
-  else
-  {
+  //if (mod == 0)
+    //cout<<"Dzielenie przez 0" << endl;
+  //else
+  //{
     //Wynik = Skl1 * sprz;
     Wynik= (*this) * Skl2.Sprzezenie();
     Wynik.re = Wynik.re / mod;
     Wynik.im = Wynik.im / mod;
-  }
+  //}
 
   return Wynik;
 }
@@ -123,3 +122,9 @@ bool LZespolona::operator == (LZespolona Skl2)
 return (this->re == Skl2.re && this->im ==Skl2.im);
 }
 
+bool LZespolona::operator ==(float a){
+if(this->re == 0 && this->im ==0)
+return 1;
+else
+return 0;
+}
