@@ -2,6 +2,7 @@
 #include "Wektor.cpp"
 #include "Macierz.cpp"
 #include "UkladRownanLiniowych.cpp"
+#include "LZespolona.cpp"
 #include "LZespolona.hh"
 
 
@@ -24,21 +25,28 @@ int main()
   //cout<<UklRown;
   //UklRown.obliczanie();
   //Wektor<TYP, Rozmiar> w;
+char wybor[2]=" ";
+     cout<<" z - Uklad rownan liczb zespolonych"<<endl;;
+     cout<<" f - Układ równanń liczb rzeczywistych"<<endl;
+cin>>wybor;     
+switch (wybor[0])
+{
+case 'z':
+     UkladRownanLiniowych<LZespolona> c;
+     cin>>c;
+     c.obliczanie();
+     break;
+case 'f':
+     UkladRownanLiniowych<float> b;
+     cin>>b;
+     b.obliczanie();
+     break;
+case 'k':
+     cout<<"Koniec programu";
+     break;
 
-
-  cout << endl
-       << " --------- Test klasy Wektor<LZespolona," << ROZMIAR << "> ----------" << endl
-       << endl;
-
-
-  Wektor<LZespolona>    W;
-  
-  for (unsigned int Ind = 0; Ind < ROZMIAR; ++Ind) {
-    W[Ind].re = Ind;      W[Ind].im = Ind;
-  }
-
-  cout << "  Wyswietlenie wspolrzednych wektora: W" << endl
-       << "        " << W << endl
-       << endl;
-
+default: cout<<"Bledny znak";
+     break;
+}
+return 0;
 }

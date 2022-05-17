@@ -128,3 +128,9 @@ return 1;
 else
 return 0;
 }
+bool LZespolona::operator !=(float a){
+if(this->re == a && this->im == a)
+return 1;
+else
+return 0;
+}

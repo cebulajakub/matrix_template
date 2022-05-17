@@ -57,7 +57,7 @@ for(int i=(ROZMIAR-1);i>=0;i--){
 }
 }
 void wynik();{
-    double wyn;
+    TYP wyn;
     
     for(int l=0;l<ROZMIAR;l++){
         wyn=(*this).macierz(l,ROZMIAR)/(*this).macierz(l,l);
