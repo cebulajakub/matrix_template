@@ -3,6 +3,7 @@
 #include "LZespolona.hh"
 #include "rozmiar.h"
 #include <iostream>
+#include <iomanip>
 
 
 /*
@@ -34,7 +35,7 @@ friend std::ostream &operator<<(std::ostream &Strm, Wektor<TYP> &Wek){
   int i;
 for(i=0;i<ROZMIAR+1;i++){
 
-    Strm<<Wek[i]<<" ";
+    Strm<< std::fixed<<std::setprecision(2)<<Wek[i]<<" ";
 }
 std::cout<<std::endl;
 return Strm;

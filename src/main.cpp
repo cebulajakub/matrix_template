@@ -25,11 +25,11 @@ int main()
   //cout<<UklRown;
   //UklRown.obliczanie();
   //Wektor<TYP, Rozmiar> w;
-char wybor[2]=" ";
+char wybor;
      cout<<" z - Uklad rownan liczb zespolonych"<<endl;;
      cout<<" f - Układ równanń liczb rzeczywistych"<<endl;
 cin>>wybor;     
-switch (wybor[0])
+switch (wybor)
 {
 case 'z':
      UkladRownanLiniowych<LZespolona> c;
